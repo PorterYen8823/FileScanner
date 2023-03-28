@@ -19,6 +19,7 @@ namespace FileScanner
         private string sourceDir;
         private string destDir;
         private int interval;
+        byte[][] fileBytes = new byte[1024][];
         private Dictionary<string, DateTime> copiedFiles = new Dictionary<string, DateTime>();
 
         public MainForm()
@@ -95,9 +96,11 @@ namespace FileScanner
                             }
                             try
                             {
+                                fileBytes[0] = File.ReadAllBytes(@"C:\temp3\IMAGE1_0014.raw");
                                 File.Copy(file, newDestFile);
+                                // File.WriteAllBytes(@"C:\temp3\BAK2\IMAGE1_"+ i.ToString().PadLeft(4, '0') +".raw", fileBytes[i]);
                             }
-                            
+
                             catch
                             {
 
